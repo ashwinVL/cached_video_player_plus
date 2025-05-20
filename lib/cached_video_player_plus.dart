@@ -10,7 +10,6 @@ library cached_video_player_plus;
 
 import 'dart:async';
 import 'dart:io';
-import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -999,8 +998,8 @@ class _CachedVideoPlayerPlusWithRotation extends StatelessWidget {
   @override
   Widget build(BuildContext context) => rotation == 0
       ? child
-      : Transform.rotate(
-          angle: rotation * math.pi / 180,
+      : RotatedBox(
+          quarterTurns: rotation ~/ 90,
           child: child,
         );
 }
